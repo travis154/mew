@@ -21,6 +21,7 @@ client.on("message", function(channel, message){
 		buffer[buf_key] = [];
 	}
 	buffer[buf_key].push(msg);
+	//offlinemsgs:of:7503500 
 });
 
 setInterval(function(){
@@ -34,8 +35,8 @@ setInterval(function(){
 		var from = parseInt(last.from);
 		console.log(last);
 		var msg_length = buffer[i].length;
-		if(now-then > 1000 * 60 * 1){
-		//if(now-then > 1000){
+		//if(now-then > 1000 * 60 * 1){
+		if(now-then > 1000){
 			//get tokens
 			Users.find({_id:{$in:[to,from]}},{token:1, tokenSecret:1, username:1}, function(err, docs){
 				if(err) throw err;
